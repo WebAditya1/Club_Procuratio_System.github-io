@@ -1,0 +1,40 @@
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto Slab', serif;
+    }
+ 
+    .banner{
+      background-image: url(images/home1.jpg);
+      min-height: 100vh;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    .btn-cont {
+      position: absolute;
+      top: 40%;
+      right: 10%;
+      display: flex;
+      flex-direction: column;
+      z-index: 0;
+    }
+
+    .btn {
+        text-decoration: none;
+        border-radius: 35px;
+        background-color: rgb(228, 38, 95);
+        /* background-color: #ED9DDF; */
+        font-size: 1em;
+        padding: 8px 18px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn:hover{
+        /* letter-spacing: 4px; */
+        transform: scale(1.03) perspective(10px);
+    }

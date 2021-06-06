@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <title>Lit</title>
+  <style>
+     .banner{
+         background-image: url(images/SocietyTeam/Literaturesociety.png);
+         min-height: 100vh;
+         background-size:contain;
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+     }
+     #select1{
+         margin-left: 71%;
+         margin-top: 12%;
+         font-size: 30px;
+         outline: none;
+         border-radius: 25px;
+         padding: 0.2% 3%;
+         background-color: #be6efc;
+         /* scrollbar-arrow-color:yellow ; */
+     }
+
+     .box{
+            padding-top: 2%;
+            margin-left: 55%;
+           
+
+        }
+
+     .card{
+            max-height: 520px;
+            width: 420px;
+            padding: 13px;
+            border-radius:12px;
+            overflow-y: auto;
+            opacity: 85%;
+            scrollbar-color:  #be6efc #f16ccd;
+            background-color: #Fa0498;
+            color: white;
+            /* background-color: white; */
+        }
+
+        /*.scrollbar::-webkit-scrollbar-track
+        {
+            border-radius: 15px;
+            background-color: #f16ccd;
+        }
+        .scrollbar::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            background-color:  #be6efc;
+        }
+
+        .scrollbar::-webkit-scrollbar
+        {
+            width: 24px;
+            background-color: #Fa0498;
+            padding: 20px;
+        }*/
+
+        .homepage a{
+           color: #D3CEF2;
+           font-size:20px;
+       }
+       .homepage a:hover{
+           color: white;
+       }
+  </style>
+    
+</head>
+<body>
+    <section class="banner">
+        <div class="homepage">
+            <a href="index.php"><i class="fas fa-home"></i></a>
+           </div>
+        <select name="select1" id="select1" onchange="showList(this.value)">
+            <option style="color: rgb(209, 206, 206);" value="0" selected disabled>Select</option>
+            <option value="LITERATURE_COMMITTEE" >Literature committee</option>
+            <option value="BOOK_CLUB"> Book club</option>
+            <option value="POETRY_CLUB" >Poetry club</option>
+        </select>
+
+        <div class="row box">
+                <div class="col-lg-3 col-md-6 col-sm-8 col-12">
+                    <div class="card scrollbar">
+                        
+                            <p id="listCont"> 
+                                "Writing is perhaps the greatest of human inventions, binding together people who never knew each other, citizens of distant epochs. Books break the shackles of time. A book is proof that humans are capable of working magic." -Carl Sagan, Cosmos. The main objective of Literary committee at IIITV is to enhance the spoken and written skills and conduct various events providing a platform for the students to discover and show their hidden talents."Writing is perhaps the greatest of human inventions, binding together people who never knew each other, citizens of distant epochs. Books break the shackles of time. A book is proof that humans are capable of working magic." -Carl Sagan, Cosmos. The main objective of Literary committee at IIITV is to enhance the spoken and written skills and conduct various events providing a platform for the students to discover and show their hidden talents."Writing is perhaps the greatest of human inventions, binding together people who never knew each other, citizens of distant epochs. Books break the shackles of time. A book is proof that humans are capable of working magic." -Carl Sagan, Cosmos. The main objective of Literary committee at IIITV is to enhance the spoken and written skills and conduct various events providing a platform for the students to discover and show their hidden talents.
+                            </p>
+                      
+                    </div>
+                </div>
+            <div>
+    
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script>
+        function showList(str) {
+          if (str.length == 0) {
+            document.getElementById("listCont").innerHTML = "";
+            return;
+          } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "getLiterature.php?q=" + str, true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("listCont").innerHTML = this.responseText;
+              }
+            };
+            
+          }
+        }
+        </script>
+</body>
+</html>
